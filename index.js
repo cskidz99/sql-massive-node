@@ -19,6 +19,8 @@ app.set('db', massiveInstance);
 var db = app.get('db');
 // app.set('db', db);
 var controller = require('./controller.js');
+var controller = require('./productsCtrl.js');
+
 
 // db.new_plane(function(err, planes){
 //     console.log(err, "plane added")
@@ -27,7 +29,11 @@ var controller = require('./controller.js');
 // db.get_planes(function(err, planes){
 //     console.log(err, planes)
 // })
-controller.getPlanes();
+// controller.getPlanes();
+app.get('/api/products', controller.getAll);
+app.get('/api/product/:productId', controller.getOne);
+app.put('/api/product/:productId', controller.create);
+
 
 app.listen('3000', function(){
   console.log("Successfully listening on : 3000")
