@@ -32,7 +32,9 @@ var controller = require('./productsCtrl.js');
 // controller.getPlanes();
 app.get('/api/products', controller.getAll);
 app.get('/api/product/:productId', controller.getOne);
-app.put('/api/product/:productId', controller.create);
+app.put('/api/product/:productId', controller.update);
+app.post('/api/product', controller.create);
+app.delete('/api/product/:productId', controller.delete);
 
 
 app.listen('3000', function(){
